@@ -1,0 +1,31 @@
+{
+  "name": "batch-6-react",
+  "version": "1.0.0",
+  "description": "- create a folder and create index.html, style.css, script.js - link script.js and style.css to index.html - create a div with id=\"root\" for react - npm init - npm i react react-dom",
+ 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx parcel index.html --no-cache",
+    "build": "npx parcel build index.html",
+    "start": "npx parcel index.html --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZayeemMohd/Batch-6-React.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ZayeemMohd/Batch-6-React/issues"
+  },
+  "homepage": "https://github.com/ZayeemMohd/Batch-6-React#readme",
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
