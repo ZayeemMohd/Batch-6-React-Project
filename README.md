@@ -58,3 +58,29 @@
 - contact
 - External links
 - Copyright
+
+
+### Props
+
+component call: Attributes = Atrribute-value
+React converts: { Attributes:  Atrribute-value, }
+
+
+  //       props =  {
+      //   resName: "Lucky Restaurant",
+      //   rating: "4.2"
+      // }
+
+      // let resName = props.resName
+      // let {resName} = props
+
+  // props = {
+                 //    resDetails: {
+                                                // resName: "Paradise",
+                                                // cuisine: ["Biryani", "Chinese", "Mughlai", "Tandoor"],
+                                                // avgRating: 4.2,
+                                                // delieveryTime: 38,
+                                                // costForTwo: 300,
+                                                // imgId: "ggbuknqzqc4qoqfnl2cr"
+                                // }
+  // }
