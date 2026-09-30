@@ -1,8 +1,15 @@
 import { baseURL } from "../utils/constants";
 
 const RestaurantCard = ({ resDetails }) => {
-  const { resName, cuisine, avgRating, delieveryTime, costForTwo, imgId } =
-    resDetails;
+  let {
+    resName,
+    cuisine,
+    avgRating,
+    delieveryTime,
+    costForTwo,
+    imgId,
+    location,
+  } = resDetails;
 
   return (
     <div className="res-card">
@@ -13,6 +20,7 @@ const RestaurantCard = ({ resDetails }) => {
       <h4>
         {delieveryTime} mins | ₹{costForTwo} for two
       </h4>
+      <h4>{location}</h4>
     </div>
   );
 };
