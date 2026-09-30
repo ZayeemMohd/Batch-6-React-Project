@@ -60,6 +60,10 @@
 - Copyright
 
 
+## Two types of exports/import
+
+1. Named Export (export)
+
 ### Props
 
 component call: Attributes = Atrribute-value

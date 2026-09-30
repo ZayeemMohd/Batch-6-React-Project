@@ -1,0 +1,2 @@
+export const baseURL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
+export const logoURL = "https://ik.imagekit.io/acrrubsd0/Untitled%20design.png?updatedAt=1770381393453"
