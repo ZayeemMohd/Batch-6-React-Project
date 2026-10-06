@@ -2,6 +2,7 @@
 import { swiggyRestaurantsURL } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   console.log("I am inside a component");
@@ -26,75 +27,43 @@ const Body = () => {
     fetchRestaurantArr();
   }, []); // only runs first time when component mounts
 
-  return (
-    <div>
-      {restaurantsArr == null ? (
-        <div>Waiting...</div>
-      ) : (
-        <div>
-          <button
-            onClick={() => {
-              console.log("button clicked");
-
-              let filterArr = restaurantsArr.filter((elem) => {
-                if (elem.avgRating > 4.2) {
-                  return true;
-                } else {
-                  return false;
-                }
-              });
-
-              setRestaurantArr(filterArr); // 11
-
-              console.log("after filtering:: ", restaurantsArr); // 11
-            }}
-          >
-            Filter Top Rated Restaurants
-          </button>
-
-          <div className="res-container">
-            {restaurantsArr.map((elem) => {
-              return <RestaurantCard resDetails={elem} key={elem.info.id} />;
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-
   if (restaurantsArr == null) {
-    return <div>Waiting...</div>;
-  } else {
     return (
       <div>
-        <button
-          onClick={() => {
-            console.log("button clicked");
-
-            let filterArr = restaurantsArr.filter((elem) => {
-              if (elem.avgRating > 4.2) {
-                return true;
-              } else {
-                return false;
-              }
-            });
-
-            setRestaurantArr(filterArr); // 11
-
-            console.log("after filtering:: ", restaurantsArr); // 11
-          }}
-        >
-          Filter Top Rated Restaurants
-        </button>
-
-        <div className="res-container">
-          {restaurantsArr.map((elem) => {
-            return <RestaurantCard resDetails={elem} key={elem.info.id} />;
-          })}
-        </div>
+        <Shimmer />
       </div>
     );
   }
+
+  return (
+    <div>
+      <button
+        onClick={() => {
+          console.log("button clicked");
+
+          let filterArr = restaurantsArr.filter((elem) => {
+            if (elem.avgRating > 4.2) {
+              return true;
+            } else {
+              return false;
+            }
+          });
+
+          setRestaurantArr(filterArr); // 11
+
+          console.log("after filtering:: ", restaurantsArr); // 11
+        }}
+      >
+        Filter Top Rated Restaurants
+      </button>
+
+      <div className="res-container">
+        {restaurantsArr.map((elem) => {
+          return <RestaurantCard resDetails={elem} key={elem.info.id} />;
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default Body;
