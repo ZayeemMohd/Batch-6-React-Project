@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
+  
   console.log("I am inside a component");
   const [restaurantsArr, setRestaurantArr] = useState(null);
 
