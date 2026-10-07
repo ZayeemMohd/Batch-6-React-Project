@@ -6,6 +6,7 @@ import About from "./src/components/About.js";
 import Contact from "./src/components/Contact.js";
 import AppLayout from "./src/AppLayout.js";
 import Cart from "./src/components/Cart.js";
+import ErrorPage from "./src/components/ErrorPage.js";
 
 const appRouter = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const appRouter = createBrowserRouter([
         element: <Cart />
       }
     ],
+    errorElement: <ErrorPage />
   },
 ]);
 
