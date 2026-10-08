@@ -3,6 +3,7 @@ import { swiggyRestaurantsURL } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   console.log("I am inside a component");
@@ -100,7 +101,7 @@ const Body = () => {
 
       <div className="res-container">
         {restaurantsArr.map((elem) => {
-          return <RestaurantCard resDetails={elem} key={elem.info.id} />;
+          return <Link to={`/menu/${elem.info.id}`} key={elem.info.id}> <RestaurantCard resDetails={elem}  /> </Link> ;
         })}
       </div>
     </div>
