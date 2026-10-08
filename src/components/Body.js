@@ -5,12 +5,18 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  
   console.log("I am inside a component");
   const [restaurantsArr, setRestaurantArr] = useState(null);
 
+  const [latLong, setLatlong] = useState({
+    lat: 28.656148,
+    lng: 77.186715,
+  });
+
   async function fetchRestaurantArr() {
-    const response = await fetch(swiggyRestaurantsURL);
+    const response = await fetch(
+      swiggyRestaurantsURL + `lat=${latLong.lat}&lng=${latLong.lng}`,
+    );
     const data = await response.json();
 
     setRestaurantArr(
@@ -26,7 +32,41 @@ const Body = () => {
   useEffect(() => {
     console.log("I am inside use effect");
     fetchRestaurantArr();
-  }, []); // only runs first time when component mounts
+  }, [latLong]); 
+
+  useEffect(()=>{
+     // 1. Check if the browser supports the Geolocation API
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    // 2. Success callback function
+    const handleSuccess = (pos) => {
+      const { latitude, longitude } = pos.coords;
+      console.log(
+        "got coordinates:: ",
+        latitude.toFixed(6),
+        longitude.toFixed(6),
+      );
+      setLatlong({
+        lat: latitude.toFixed(6),
+        lng: longitude.toFixed(6),
+      });
+    };
+
+    // 3. Error callback function
+    const handleError = (err) => {
+      setError(err.message);
+    };
+
+    // 4. Request the current position
+    navigator.geolocation.getCurrentPosition(handleSuccess, handleError, {
+      enableHighAccuracy: true, // Request high accuracy (e.g., GPS over cell tower)
+      timeout: 5000, // Time in ms to wait before timing out
+      maximumAge: 0, // Do not use cached locations
+    });
+  }, [])
 
   if (restaurantsArr == null) {
     return (
