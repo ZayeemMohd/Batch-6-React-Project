@@ -88,3 +88,22 @@ React converts: { Attributes:  Atrribute-value, }
                                                 // imgId: "ggbuknqzqc4qoqfnl2cr"
                                 // }
   // }
+
+
+  ## day 6
+
+  1. restaurnat menu page
+                - 1. Fetch the menu api
+                - 2. creating RestauantMenuInfoCard
+
+                - 3. extracting categories from api
+                - 4. filter only categories
+                - 5. we got categoriesArr
+
+                - 6. <RestaurantCategory /> on categoriesArr
+                        1. category-header
+                            title and ⬇️
+
+
+                        2. category-body
+                           <MenuItem /> on category.itemCards.map

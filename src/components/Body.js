@@ -62,7 +62,6 @@ const Body = () => {
         {restaurantsArr.map((elem) => {
           return (
             <Link to={`/menu/${elem.info.id}`} key={elem.info.id}>
-              {" "}
               <RestaurantCard resDetails={elem} />{" "}
             </Link>
           );
