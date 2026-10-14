@@ -18,7 +18,7 @@ const Header = () => {
 
       <div className="nav-items">
         <ul>
-          <li>{onlineStatus ? <li>Online 🟢</li> : <li>Offline 🛑 </li>}</li>
+          <li>{onlineStatus ? <b>Online 🟢</b> : <b>Offline 🛑 </b>}</li>
 
           <li>
             <Link to="/">Home</Link>
@@ -34,6 +34,10 @@ const Header = () => {
 
           <li>
             <Link to="/cart">Cart</Link>
+          </li>
+
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
 
           {}
