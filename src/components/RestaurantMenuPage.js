@@ -7,6 +7,8 @@ import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenuPage = () => {
   const [menu, setMenu] = useState(null);
+
+  
   const { restaurantId } = useParams();
 
   async function fetchMenu() {
