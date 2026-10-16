@@ -2,7 +2,8 @@ import React from "react";
 import MenuItem from "./MenuItem";
 import { useState } from "react";
 
-const RestaurantCategory = ({ category, command, setIndex }) => {
+const RestaurantCategory = ({ category, command, setIndex, dataPassing }) => {
+  console.log("datapassing wala data recieved in restaurant category:: ", dataPassing)
   return (
     <div className="category-accordian">
       <div
@@ -21,7 +22,7 @@ const RestaurantCategory = ({ category, command, setIndex }) => {
         <div className="category-body">
           {category.itemCards.map((elem) => {
             return (
-              <MenuItem details={elem.card.info} key={elem.card.info.id} />
+              <MenuItem dataPassing={dataPassing} details={elem.card.info} key={elem.card.info.id} />
             );
           })}
         </div>

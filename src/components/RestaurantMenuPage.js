@@ -5,6 +5,9 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
 
 const RestaurantMenuPage = () => {
+
+  let [dummy, setDummy] = useState("I am dummy data")
+
   const { restaurantId } = useParams();
 
   const menu = useRestaurantMenu(restaurantId);
@@ -43,6 +46,7 @@ const RestaurantMenuPage = () => {
       {categoriesArr.map((category, index) => {
         return (
           <RestaurantCategory
+            dataPassing={dummy}
             command={index == showIndex ? true : false}
             setIndex={()=>{
               setShowIndex(index)

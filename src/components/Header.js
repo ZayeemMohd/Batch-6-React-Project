@@ -2,9 +2,13 @@ import { Link } from "react-router";
 import { logoURL } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantArr";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
+
+  const userObj = useContext(UserContext);
 
   return (
     <div className="header">
@@ -39,6 +43,8 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
+
+          <li>{userObj.name}</li>
 
           {}
         </ul>
