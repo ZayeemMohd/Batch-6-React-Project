@@ -10,7 +10,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const userObj = useContext(UserContext);
-  const { hotelList, setHotelList } = useContext(HotelListContext);
+  const { hotelList, setHotelList, allItems } = useContext(HotelListContext);
 
   return (
     <div className="header">
@@ -21,7 +21,7 @@ const Header = () => {
       <div className="search-bar">
         <input placeholder="Search Restaurants..." onChange={(e)=>{
 
-           const filteredArr =  hotelList.filter((restaurantObj)=>{
+           const filteredArr =  allItems.filter((restaurantObj)=>{
               if(restaurantObj.info.name.toLowerCase().includes(e.target.value.toLowerCase())){
                 return true
               } else {

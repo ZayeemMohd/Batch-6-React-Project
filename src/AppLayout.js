@@ -12,11 +12,14 @@ const AppLayout = () => {
     email: "default@example.com",
   });
 
-  const [hotelList, setHotelList] = useState(null)
+
+  const [allItems, setAllItems]= useState(null); // Master COPY
+
+  const [hotelList, setHotelList] = useState(null); // UI COPY
 
   return (
     <div>
-      <HotelListContext.Provider value={{hotelList, setHotelList}}>
+      <HotelListContext.Provider value={{hotelList, setHotelList, allItems, setAllItems}}>
         <UserContext.Provider value={user}>
           <Header />
           <Outlet />

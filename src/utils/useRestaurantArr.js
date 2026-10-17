@@ -4,7 +4,7 @@ import HotelListContext from "./HotelListContext";
 
 
 const useRestaurantArr = () => {
-  const {hotelList, setHotelList} = useContext(HotelListContext)
+  const {hotelList, setHotelList, setAllItems} = useContext(HotelListContext)
 
   async function fetchRestaurantArr() {
     const response = await fetch(swiggyRestaurantsURL);
@@ -15,6 +15,13 @@ const useRestaurantArr = () => {
       data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
     );
+
+     setAllItems(
+      data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
+    );
+
+
 
     console.log(
       data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
