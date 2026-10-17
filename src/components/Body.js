@@ -3,9 +3,12 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useRestaurantArr from "../utils/useRestaurantArr";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import WithDiscountLabel from "./WithDiscountLabel";
 
 const Body = () => {
   const restaurantsArr = useRestaurantArr();
+
+  const DiscountedRestaurantCard = WithDiscountLabel(RestaurantCard);
 
   const isOnline = useOnlineStatus();
   console.log("I am isONline", isOnline);
@@ -21,10 +24,15 @@ const Body = () => {
   return (
     <div>
       <div className="res-container">
-        {restaurantsArr.map((elem) => {
+        {restaurantsArr.map((elem, index) => {
+          console.log(elem.info.aggregatedDiscountInfoV3);
           return (
             <Link to={`/menu/${elem.info.id}`} key={elem.info.id}>
-              <RestaurantCard resDetails={elem} />{" "}
+              {elem.info.aggregatedDiscountInfoV3 ? (
+                <DiscountedRestaurantCard resDetails={elem} />
+              ) : (
+                <RestaurantCard resDetails={elem} />
+              )}
             </Link>
           );
         })}
