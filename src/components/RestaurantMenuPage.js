@@ -49,7 +49,7 @@ const RestaurantMenuPage = () => {
             dataPassing={dummy}
             command={index == showIndex ? true : false}
             setIndex={()=>{
-              setShowIndex(index)
+              setShowIndex(showIndex == index ? null : index)
             }}
             category={category.card.card}
             key={category.card.card.categoryId}
