@@ -4,11 +4,13 @@ import useRestaurantMenu from "../utils/useRestaurantArr";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import HotelListContext from "../utils/HotelListContext";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const userObj = useContext(UserContext);
+  const { hotelList, setHotelList } = useContext(HotelListContext);
 
   return (
     <div className="header">
@@ -17,7 +19,19 @@ const Header = () => {
       </div>
 
       <div className="search-bar">
-        <input placeholder="Search Restaurants..." />
+        <input placeholder="Search Restaurants..." onChange={(e)=>{
+
+           const filteredArr =  hotelList.filter((restaurantObj)=>{
+              if(restaurantObj.info.name.toLowerCase().includes(e.target.value.toLowerCase())){
+                return true
+              } else {
+                return false
+              }
+            })
+
+            setHotelList(filteredArr)
+
+        }} />
       </div>
 
       <div className="nav-items">
